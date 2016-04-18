@@ -15,11 +15,19 @@ import android.os.Vibrator;
 public class GpsPage extends ActionBarActivity {
 
     private Button btn1;
+    Location location2 = new Location("");
+
+    //LED Coordinates
+    double latitude = 55.7106742;
+    double longitude = 13.2101104;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gps_page);
+
+        location2.setLatitude(latitude);
+        location2.setLongitude(longitude);
 
         btn1 = (Button) findViewById(R.id.vibrationButton);
 
@@ -37,6 +45,15 @@ public class GpsPage extends ActionBarActivity {
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
                 // Called when a new location is found by the network location provider.
+
+                float radius = (float) 50.0;
+                float distance = location.distanceTo(location2);
+                if (distance < radius){
+                    Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    vb.vibrate(500);
+                }
+
+
                 String msg = "New Latitude: " + location.getLatitude()
                         + "New Longitude: " + location.getLongitude();
 
