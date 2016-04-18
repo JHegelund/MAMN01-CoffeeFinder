@@ -14,7 +14,7 @@ import android.os.Vibrator;
 
 public class GpsPage extends ActionBarActivity {
 
-    private Button btn1;
+    //private Button btn1;
     Location location2 = new Location("");
 
     //LED Coordinates
@@ -29,14 +29,14 @@ public class GpsPage extends ActionBarActivity {
         location2.setLatitude(latitude);
         location2.setLongitude(longitude);
 
-        btn1 = (Button) findViewById(R.id.vibrationButton);
+        /*btn1 = (Button) findViewById(R.id.vibrationButton);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vb.vibrate(500);
             }
-        });
+        });*/
 
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -49,8 +49,10 @@ public class GpsPage extends ActionBarActivity {
                 float radius = (float) 50.0;
                 float distance = location.distanceTo(location2);
                 if (distance < radius){
-                    Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    vb.vibrate(500);
+                    for(int i = 0; i < 4; i++) {
+                        Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        vb.vibrate(1000);
+                    }
                 }
 
 
