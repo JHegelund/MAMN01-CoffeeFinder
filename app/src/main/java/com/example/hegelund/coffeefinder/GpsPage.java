@@ -46,13 +46,13 @@ public class GpsPage extends ActionBarActivity {
             public void onLocationChanged(Location location) {
                 // Called when a new location is found by the network location provider.
 
-                float radius = (float) 50.0;
+                long[] pattern = {0, 1000, 1000, 1000, 1000, 1000};
+                float radius = (float) 200.0;
                 float distance = location.distanceTo(location2);
                 if (distance < radius){
-                    for(int i = 0; i < 4; i++) {
-                        Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                        vb.vibrate(1000);
-                    }
+                    Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    //vb.vibrate(1000);
+                    vb.vibrate(pattern, -1);
                 }
 
 
