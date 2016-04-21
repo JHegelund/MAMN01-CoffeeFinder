@@ -16,10 +16,14 @@ public class GpsPage extends ActionBarActivity {
 
     //private Button btn1;
     Location location2 = new Location("");
+    Location location3 = new Location("");
 
     //LED Coordinates
     double latitude = 55.7106742;
     double longitude = 13.2101104;
+
+    double latitude2 = 55.7152585;
+    double longitude2 = 13.2125805;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,9 @@ public class GpsPage extends ActionBarActivity {
 
         location2.setLatitude(latitude);
         location2.setLongitude(longitude);
+
+        location3.setLatitude(latitude2);
+        location3.setLongitude(longitude2);
 
         /*btn1 = (Button) findViewById(R.id.vibrationButton);
 
@@ -49,7 +56,14 @@ public class GpsPage extends ActionBarActivity {
                 long[] pattern = {0, 1000, 1000, 1000, 1000, 1000};
                 float radius = (float) 200.0;
                 float distance = location.distanceTo(location2);
+                float distance2 = location.distanceTo(location3);
                 if (distance < radius){
+                    Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    //vb.vibrate(1000);
+                    vb.vibrate(pattern, -1);
+                }
+
+                if(distance2 < radius){
                     Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     //vb.vibrate(1000);
                     vb.vibrate(pattern, -1);
