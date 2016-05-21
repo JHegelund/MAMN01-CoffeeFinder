@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CoffeeFinder</string>
     <string name="title_activity_gps_page">GpsPage</string>
+    <string name="title_activity_ar__page">AR_Page</string>
 </resources>

@@ -18,9 +18,11 @@ public class GpsPage extends ActionBarActivity {
     Location location2 = new Location("");
     Location location3 = new Location("");
 
+    boolean stopGps = false;
+
     //LED Coordinates
-    double latitude = 55.7106742;
-    double longitude = 13.2101104;
+    double latitude = 55.7168195;
+    double longitude = 13.1967485;
 
     double latitude2 = 55.7152585;
     double longitude2 = 13.2125805;
@@ -35,6 +37,7 @@ public class GpsPage extends ActionBarActivity {
 
         location3.setLatitude(latitude2);
         location3.setLongitude(longitude2);
+
 
         /*btn1 = (Button) findViewById(R.id.vibrationButton);
 
@@ -57,16 +60,26 @@ public class GpsPage extends ActionBarActivity {
                 float radius = (float) 200.0;
                 float distance = location.distanceTo(location2);
                 float distance2 = location.distanceTo(location3);
-                if (distance < radius){
+                if (distance < radius && stopGps == false){
                     Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     //vb.vibrate(1000);
                     vb.vibrate(pattern, -1);
+                    stopGps = true;
+                    Intent i = new Intent(GpsPage.this, CompassPage.class);
+                    startActivity(i);
+                } else if (distance > radius){
+                    stopGps = false;
                 }
 
-                if(distance2 < radius){
+                if(distance2 < radius && stopGps == false){
                     Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     //vb.vibrate(1000);
                     vb.vibrate(pattern, -1);
+                    stopGps = true;
+                    Intent i = new Intent(GpsPage.this, CompassPage.class);
+                    startActivity(i);
+                } else if (distance2 > radius){
+                    stopGps = false;
                 }
 
 
