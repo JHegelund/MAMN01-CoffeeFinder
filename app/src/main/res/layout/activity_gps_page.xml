@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Scanning for coffee"/>
+        android:text="Scanning for coffee, keep walking! When there are coffee nearby, the phone will start to vibrate"
+        />
 
     <!--<Button
         android:id="@+id/vibrationButton"

@@ -17,5 +17,13 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Start scanning for coffee"
+        android:textColor="@android:color/white"
         android:background="@drawable/roundedbutton"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Press button below to find coffee nearby"/>
 </RelativeLayout>
