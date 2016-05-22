@@ -17,11 +17,11 @@
         android:layout_centerHorizontal="true"
         android:text="Scanning for coffee"/>
 
-    <Button
+    <!--<Button
         android:id="@+id/vibrationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vibration"/>
+        android:text="Vibration"/>-->
 
     <ImageView
         android:id="@+id/scanCoffee"

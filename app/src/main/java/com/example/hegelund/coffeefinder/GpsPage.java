@@ -69,6 +69,7 @@ public class GpsPage extends ActionBarActivity {
                     startActivity(i);
                 } else if (distance > radius){
                     stopGps = false;
+                    Toast.makeText(getBaseContext(), "You are more than 200 away from coffee, keep walking", Toast.LENGTH_LONG).show();
                 }
 
                 if(distance2 < radius && stopGps == false){
@@ -79,7 +80,7 @@ public class GpsPage extends ActionBarActivity {
                     Intent i = new Intent(GpsPage.this, CompassPage.class);
                     startActivity(i);
                 } else if (distance2 > radius){
-                    stopGps = false;
+                    //stopGps = false;
                 }
 
 
